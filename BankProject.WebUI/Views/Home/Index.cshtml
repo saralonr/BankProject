@@ -1,0 +1,33 @@
+﻿@using BankProject.WebUI.Helpers
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<div class="clearfix" style="margin-top:20px;"></div>
+<div class="jumbotron">
+    <h1> @DataHelpers.GetBankName()'a Hoşgeldiniz!</h1>
+    <h2>Neler yapabilirsiniz?</h2>
+    <p class="lead"> Sistem üzerinde müşteri kaydı oluşturabilir ve yeni hesap açabilirsiniz.</p>
+    <p><a href="/Account/Index" class="btn btn-primary btn-sm">Yeni Hesap Açmak İçin Tıklayınız &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Havale İşlemleri</h2>
+        <p>
+            Hesabınızdan diğer hesaplarınıza para transferi yapabilirsiniz.
+            <br />
+        </p>
+        <p><a class="btn btn-default" href="/Account/Transfer">Transfer yapmak için tıklayınız &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Virman İşlemleri</h2>
+        <p>Hesabınızdan diğer müşterilerin hesaplarını para transferi yapabilirsiniz.</p>
+        <p><a class="btn btn-default" href="/Account/Virman">Virman yapmak için tıklayınız &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>HGS Kart İşlemleri</h2>
+        <p>Bankamız üzerinden HGS kart satın alabilir, hesaplarınızdan bakiye yüklemesi yapabilirsiniz.</p>
+        <p><a class="btn btn-default" href="/Account/Index">Hesaplarınızı görüntülemek için tıklayınız &raquo;</a></p>
+    </div>
+</div>

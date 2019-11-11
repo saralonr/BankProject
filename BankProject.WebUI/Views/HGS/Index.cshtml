@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "HGS Kartlarınız";
+}
+@using BankProject.Data.Model
+@model List<HGSCard>
+
+<div class="btn-toolbar pull-right" style="margin-top:5px;margin-bottom:5px;">
+    <a class="btn btn-primary" href="/Hgs/NewCard">Yeni Kart</a>
+</div>
+<div class="clearfix"></div>
+<div class="well">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <center>@TempData["Error"]</center>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            <center>@TempData["Success"]</center>
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kart No</th>
+                <th>Bakiye</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (HGSCard item in Model)
+                {
+                    <tr>
+                        <td>@item.CardNo</td>
+                        <td>@item.Balance</td>
+                        <td>
+                            <a class="btn btn-success btn-xs" href="/Hgs/Detail?cardId=@item.Id">Detay/Bakiye İşlemleri</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center">
+                        Henüz hiç kartınız yok.
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

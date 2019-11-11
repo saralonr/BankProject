@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Hesaplarınız";
+}
+@using BankProject.Data.Model
+@model List<Account>
+
+<div class="btn-toolbar pull-right" style="margin-top:5px;margin-bottom:5px;">
+    <a class="btn btn-primary" href="/Account/NewAccount">Yeni Hesap</a>
+</div>
+<div class="clearfix"></div>
+<div class="well">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <center>@TempData["Error"]</center>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            <center>@TempData["Success"]</center>
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Hesap No</th>
+                <th>Bakiye</th>
+                <th>İşlemler</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (Account item in Model)
+                {
+                    <tr>
+                        <td>@item.AccountNo</td>
+                        <td>@item.Balance</td>
+                        <td>
+                            <a class="btn btn-success btn-xs" href="/Account/Transfer?Acc=@item.Id">Havale İşlemleri</a>
+                            <a class="btn btn-success btn-xs" href="/Account/Virman?Acc=@item.Id">Virman İşlemleri</a>
+                        </td>
+                        <td>
+                            <a href="/Account/DeleteAccount/@item.Id" class="btn btn-danger btn-xs">Sil</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center">
+                        Henüz hiç hesap açmadınız.
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,68 @@
+﻿@using BankProject.Data.Model
+@using BankProject.Data.DTO
+@{
+    ViewBag.Title = "HGS Kart Bakiye Yükleme İşlemleri";
+}
+@model HGSCard
+
+<div class="clearfix" style="margin-bottom:100px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">HGS Kart Bakiye Yükleme İşlemleri</h3>
+                </div>
+                <div class="panel-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            <center>@TempData["Error"]</center>
+                        </div>
+                    }
+                    <form accept-charset="UTF-8" role="form" action="/Hgs/CardPayment" method="post">
+                        <input type="hidden" name="CardId" value="@Model.Id" />
+                        <fieldset>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Plaka</label>
+                                <input readonly type="text" class="form-control" value="@Model.VehiclePlate">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Bakiye</label>
+                                <input readonly type="text" class="form-control" value="@Model.Balance">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Kart No</label>
+                                <input readonly type="text" class="form-control" value="@Model.CardNo">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Araç Tipi</label>
+                                <input readonly type="text" class="form-control" value="@(Model.VehicleType==1 ? "A Sınıf" : Model.VehicleType==2 ? "B Sınıf" : "C Sınıf")">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-btc"></i></span>
+                                    <select class="form-control" name="AccountId" id="AccountId" required>
+                                        @foreach (Account item in ViewBag.Accounts)
+                                        {
+                                            <option value="@item.Id">@item.AccountNo - Bakiye: @item.Balance</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-btc"></i></span>
+                                    <input class="form-control" placeholder="Bakiye giriniz." name="Balance" type="number" required>
+                                </div>
+                            </div>
+                            <input class="btn btn-sm btn-warning pull-right" type="submit" value="İşlemi Tamamla">
+                        </fieldset>
+                    </form>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

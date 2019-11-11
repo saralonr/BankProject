@@ -1,0 +1,11 @@
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\BankProject.Data.dll.config
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\BankProject.Data.dll
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\BankProject.Data.pdb
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\EntityFramework.dll
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\EntityFramework.xml
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\obj\Debug\BankProject.Data.csproj.CopyComplete
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\obj\Debug\BankProject.Data.dll
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\obj\Debug\BankProject.Data.pdb
+C:\Users\Onur\source\repos\BankProject\BankProject.Data\obj\Debug\BankProject.Data.csprojAssemblyReference.cache

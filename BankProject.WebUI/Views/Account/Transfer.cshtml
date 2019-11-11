@@ -1,0 +1,80 @@
+﻿
+@using BankProject.Data.DTO
+@{
+     ViewBag.Title = "Havale İşlemleri";
+}
+@model TransferOutDTO
+
+@if (ViewBag.EmptyAccount != null)
+{
+    <div class="clearfix" style="margin-bottom:100px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Havale İşlemleri</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <center>@TempData["Error"]</center>
+                            </div>
+                            <div class="clearfix"> </div>
+                        }
+
+                    <center>Havale işlemleri için <a href="/Account/Index">Hesaplarım</a> sayfasından hesap seçimi yapabilirsiniz.</center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="clearfix" style="margin-bottom:100px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Havale İşlemleri</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <center>@TempData["Error"]</center>
+                            </div>
+                        }
+                        <form accept-charset="UTF-8" role="form" class="form-horizontal" action="/Account/Transfer" method="post" id="Transfer">
+                            <fieldset>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Hesap Numarası</label>
+                                    <input readonly type="text" class="form-control" value="@Model.Account.AccountNo">
+                                    <input type="hidden" name="FromAccountId" class="form-control" value="@Model.Account.Id">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Hesap Bakiyesi</label>
+                                    <input readonly type="text" class="form-control" value="@Model.Account.Balance">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ToAccountNo" class="control-label">Gönderilecek Hesap</label>
+                                    <input type="number" class="form-control" name="ToAccountNo" id="ToAccountNo" value="" maxlength="9" required/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="FromBalance" class="control-label">Gönderilecek Tutar</label>
+                                    <input type="number" class="form-control" name="FromBalance" id="FromBalance" value="0" required>
+                                </div>
+
+                                <input class="btn btn-sm btn-warning pull-right" type="submit" value="İşlemi Tamamla">
+                            </fieldset>
+                        </form>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
